@@ -1,0 +1,61 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<title>changement de mot de passe</title>
+<body>
+<div class="site-wrapper">
+
+    <!-- Header -->
+    <header class="header header-menu-fullw">
+
+        <!-- Header Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-right">
+                    <button class="btn btn-sm btn-default menu-link menu-link__tertiary">
+                        <i class="fa fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main -->
+    <div class="main" role="main">
+
+        <!-- Page Heading -->
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>changer votre mot de passe</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Page Heading / End -->
+
+        <!-- Page Content -->
+        <section class="page-content">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+                                <div>
+                                    <label for="username">{{ 'resetting.request.username'|trans }}</label>
+                                    <input type="text" id="username" name="username" required="required" />
+                                </div>
+                                <div>
+                                    <input type="submit" value="{{ 'resetting.request.submit'|trans }}" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</div>
+</body>
+

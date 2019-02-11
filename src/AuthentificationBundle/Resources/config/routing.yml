@@ -1,0 +1,4 @@
+authentification_homepage:
+    path:     /az
+    defaults: { _controller: AuthentificationBundle:Default:index }
+
