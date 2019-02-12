@@ -10,8 +10,4 @@ class DefaultController extends Controller
     {
         return $this->render('@Authentification/Default/index.html.twig');
     }
-    public function loginAction()
-    {
-        return $this->render('@Authentification/Default/login.html.twig');
-    }
 }

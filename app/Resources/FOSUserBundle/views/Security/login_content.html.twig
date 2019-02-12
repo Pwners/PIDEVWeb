@@ -1,6 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<title>login</title>
-<body>
+{% block title %} <title>login</title>{% endblock %}
+
+{% block body %}
 <div class="site-wrapper">
 
     <!-- Header -->
@@ -30,6 +31,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Page Heading / End -->
 
         <!-- Page Content -->
@@ -74,4 +76,4 @@
 
     </div>
 </div>
-</body>
+{% endblock %}

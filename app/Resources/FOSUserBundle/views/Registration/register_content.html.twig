@@ -1,57 +1,4 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<!DOCTYPE html>
-<html>
-<!DOCTYPE html>
-<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
-<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
-
-<!-- Mirrored from handyman.dan-fisher.com/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Dec 2018 12:21:12 GMT -->
-<head>
-
-    <!-- Basic Page Needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>S'inscrire</title>
-    <meta name="description" content="Handyman - Job Board HTML Template - 1.0">
-    <meta name="author" content="../themeforest.net/user/dan_fisher.html">
-
-
-    <!-- Mobile Specific Metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-
-
-
-    <!-- CSS
-    ================================================== -->
-    <!-- Base + Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fonts/font-awesome/css/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fonts/entypo/css/entypo.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ asset('vendor/owl-carousel/owl.theme.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ asset('vendor/magnific-popup/magnific-popup.css') }}" media="screen">
-
-    <!-- Theme CSS-->
-    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/theme-elements.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
-
-
-
-    <!-- Head Libs -->
-    <script src="{{ asset('vendor/modernizr.js') }}"></script>
-
-
-    <!-- Favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="{{ asset('images/favicons/favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/favicons/favicon-120.html') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicons/favicon-152.html') }}">
-
-</head>
-<body>
 
 <div class="site-wrapper">
 
@@ -93,10 +40,40 @@
                             <div class="box">
                                 <h3>s'inscrire</h3>
                                 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-                                {{ form_widget(form) }}
-                                <div>
-                                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                                <div class="form-group">
+                                    {{ form_widget(form.username, { 'attr': {'class': 'form-control placeholder-no-fix', 'placeholder':'utilisateur'} }) }}
+                                    {% for errorItem in form.username.vars.errors %}
+                                        <span class="help-inline">{{ errorItem.message }}</span>
+                                    {% endfor %}
                                 </div>
+                                <div class="form-group">
+                                    {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder':'adresse mail'} }) }}
+                                    {% for errorItem in form.email.vars.errors %}
+                                        <span class="help-inline">{{ errorItem.message }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-group"> types utilisateurs
+                                    {{ form_widget(form.roles, { 'attr': {'class': 'form-control', 'placeholder':'Type utilisateurs'} }) }}
+                                    {% for errorItem in form.roles.vars.errors %}
+                                        <span class="help-inline">{{ errorItem.message }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder':'mot de passe'} }) }}
+                                    {% for errorItem in form.plainPassword.first.vars.errors %}
+                                        <span class="help-inline">{{ errorItem.message }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder':'Répéter mot de passe'} }) }}
+                                    {% for errorItem in form.plainPassword.second.vars.errors %}
+                                        <span class="help-inline">{{ errorItem.message }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" id="register-submit-btn" class="btn btn-primary btn-inlin">s'inscrire</button>
+                                </div>
+
                                 {{ form_end(form) }}
                             </div>
                         </div>
@@ -117,6 +94,6 @@
 
 
 
-</body>
+
 
 <!-- Mirrored from handyman.dan-fisher.com/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Dec 2018 12:21:12 GMT -->
