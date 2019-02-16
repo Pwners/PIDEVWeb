@@ -18,7 +18,13 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new AuthentificationBundle\AuthentificationBundle(),
+            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
+            new fixit\AnnonceBundle\fixitAnnonceBundle(),
+            new fixit\PartenariatBundle\fixitPartenariatBundle(),
+            new fixit\AcctualiteBundle\fixitAcctualiteBundle(),
+            new fixit\OrganisationBundle\fixitOrganisationBundle(),
+            new fixit\EvaluationBundle\fixitEvaluationBundle(),
+            new fixit\ServiceBundle\fixitServiceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

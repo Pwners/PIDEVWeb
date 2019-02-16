@@ -1,9 +1,31 @@
-authentification:
-    resource: "@AuthentificationBundle/Resources/config/routing.yml"
-    prefix:   /auth
+fixit_service:
+    resource: "@fixitServiceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fixit_evaluation:
+    resource: "@fixitEvaluationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fixit_organisation:
+    resource: "@fixitOrganisationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fixit_acctualite:
+    resource: "@fixitAcctualiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fixit_partenariat:
+    resource: "@fixitPartenariatBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fixit_annonce:
+    resource: "@fixitAnnonceBundle/Resources/config/routing.yml"
+    prefix:   /
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+mgilet_notifications:
+    resource: "@MgiletNotificationBundle/Controller/"
