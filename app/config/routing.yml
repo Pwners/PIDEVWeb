@@ -1,26 +1,26 @@
 fixit_service:
     resource: "@fixitServiceBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /service
 
 fixit_evaluation:
     resource: "@fixitEvaluationBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /evaluation
 
 fixit_organisation:
     resource: "@fixitOrganisationBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /organisation
 
 fixit_acctualite:
     resource: "@fixitAcctualiteBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /acctualite
 
 fixit_partenariat:
     resource: "@fixitPartenariatBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /partenariat
 
 fixit_annonce:
     resource: "@fixitAnnonceBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /annonce
 
 app:
     resource: '@AppBundle/Controller/'
@@ -29,3 +29,4 @@ fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 mgilet_notifications:
     resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications

@@ -9,14 +9,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use fixit\ServiceBundle\Entity\Notifications;
+use fixit\ServiceBundle\Entity\Notification;
 use FOS\UserBundle\Model\User as BaseUser;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="`user`")
+ * @Notifiable(name="user")
  */
 class User extends BaseUser implements NotifiableInterface
 {
@@ -28,10 +30,10 @@ class User extends BaseUser implements NotifiableInterface
     protected $id;
 
     /**
-     * @var Notifications
-     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\Notifications", mappedBy="User", orphanRemoval=true ,cascade={"persist"})
+     * @var Notification
+     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\Notification", mappedBy="User", orphanRemoval=true ,cascade={"persist"})
      */
-    protected $notifications;
+    protected $notification;
 
     /**
      * User constructor.
@@ -41,23 +43,23 @@ class User extends BaseUser implements NotifiableInterface
     {
         parent::__construct();
 
-        $this->notifications = new ArrayCollection();
+        $this->notification = new ArrayCollection();
     }
 
     /**
-     * @return Notifications
+     * @return Notification
      */
-    public function getNotifications()
+    public function getNotification()
     {
-        return $this->notifications;
+        return $this->notification;
     }
     /**
      * {@inheritdoc}
      */
     public function addNotification($notification)
     {
-        if (!$this->notifications->contains($notification)) {
-            $this->notifications[] = $notification;
+        if (!$this->notification->contains($notification)) {
+            $this->notification[] = $notification;
             $notification->setUser($this);
         }
 
@@ -69,19 +71,19 @@ class User extends BaseUser implements NotifiableInterface
      */
     public function removeNotification($notification)
     {
-        if ($this->notifications->contains($notification)) {
-            $this->notifications->removeElement($notification);
+        if ($this->notification->contains($notification)) {
+            $this->notification->removeElement($notification);
         }
 
         return $this;
     }
 
     /**
-     * @param Notifications $notifications
+     * @param Notification $notification
      */
-    public function setNotifications($notifications)
+    public function setNotification($notification)
     {
-        $this->notifications = $notifications;
+        $this->notification = $notification;
     }
 
     /**

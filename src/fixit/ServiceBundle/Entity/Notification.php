@@ -8,18 +8,16 @@
 
 namespace fixit\ServiceBundle\Entity;
 use AppBundle\Entity\User;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Mgilet\NotificationBundle\Entity\NotifiableNotification;
 use Mgilet\NotificationBundle\Entity\NotificationInterface;
 use Mgilet\NotificationBundle\Model\Notification as NotificationModel;
 
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="notification")
+ * @ORM\Table(name="notifications")
  */
-class Notifications extends NotificationModel
+class Notification extends NotificationModel implements NotificationInterface
 {
     /**
      * @ORM\Id
@@ -30,8 +28,8 @@ class Notifications extends NotificationModel
 
     /**
      * @var User
-     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Notification", inversedBy="notifications" ,cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="notification" ,cascade={"persist"})
+     * @ORM\JoinColumn(name="user", referencedColumnName="id",nullable=false)
      */
     protected $user;
 
@@ -54,7 +52,7 @@ class Notifications extends NotificationModel
 
     /**
      * @param User $user
-     * @return Notifications
+     * @return Notification
      */
     public function setUser($user)
     {

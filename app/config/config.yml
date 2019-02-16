@@ -64,7 +64,7 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         resolve_target_entities:
-            Mgilet\NotificationBundle\Entity\Notification: fixit\ServiceBundle\Entity\Notifications
+            Mgilet\NotificationBundle\Entity\Notification: fixit\ServiceBundle\Entity\Notification
 
 # Swiftmailer Configuration
 swiftmailer:
