@@ -29,6 +29,8 @@ class User extends BaseUser implements NotifiableInterface
      */
     protected $id;
 
+
+
     /**
      * @var Notification
      * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\Notification", mappedBy="User", orphanRemoval=true ,cascade={"persist"})
