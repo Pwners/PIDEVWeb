@@ -35,6 +35,49 @@ class Categorie
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\tache",inversedBy="categories")
+     * @ORM\JoinColumn(name="tache", referencedColumnName="id")
+     */
+    private $tache;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="Categorie")
+     */
+    private $pro;
+
+    /**
+     * @return mixed
+     */
+    public function getPro()
+    {
+        return $this->pro;
+    }
+
+    /**
+     * @param mixed $pro
+     */
+    public function setPro($pro)
+    {
+        $this->pro = $pro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTache()
+    {
+        return $this->tache;
+    }
+
+    /**
+     * @param mixed $tache
+     */
+    public function setTache($tache)
+    {
+        $this->tache = $tache;
+    }
+
 
     /**
      * Get id

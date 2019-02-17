@@ -38,6 +38,28 @@ class User extends BaseUser implements NotifiableInterface
     protected $notification;
 
     /**
+     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie",inversedBy="pro")
+     * @ORM\JoinColumn(name="categories", referencedColumnName="id")
+     */
+    private $categories;
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+    }
+
+    /**
      * User constructor.
      * @param $id
      */
