@@ -9,7 +9,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use fixit\ServiceBundle\Entity\Notification;
 use FOS\UserBundle\Model\User as BaseUser;
 use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
@@ -29,13 +28,154 @@ class User extends BaseUser implements NotifiableInterface
      */
     protected $id;
 
-
+    /**
+     * @ORM\Column(name="entreprise",type="string",nullable=true)
+     */
+    protected $entreprise;
 
     /**
-     * @var Notification
-     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\Notification", mappedBy="User", orphanRemoval=true ,cascade={"persist"})
+     * @return mixed
      */
-    protected $notification;
+    public function getBiographie()
+    {
+        return $this->biographie;
+    }
+
+    /**
+     * @param mixed $biographie
+     */
+    public function setBiographie($biographie)
+    {
+        $this->biographie = $biographie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDiplome()
+    {
+        return $this->diplome;
+    }
+
+    /**
+     * @param mixed $diplome
+     */
+    public function setDiplome($diplome)
+    {
+        $this->diplome = $diplome;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @param mixed $entreprise
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->entreprise = $entreprise;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumtel()
+    {
+        return $this->numtel;
+    }
+
+    /**
+     * @param mixed $numtel
+     */
+    public function setNumtel($numtel)
+    {
+        $this->numtel = $numtel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param mixed $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTofcin()
+    {
+        return $this->tofcin;
+    }
+
+    /**
+     * @param mixed $tofcin
+     */
+    public function setTofcin($tofcin)
+    {
+        $this->tofcin = $tofcin;
+    }
+
+    /**
+     * @ORM\Column(name="nom",type="string",nullable=true)
+     */
+    protected $nom;
+
+    /**
+     * @ORM\Column(name="prenom",type="integer",nullable=true)
+     */
+    protected $prenom;
+
+    /**
+     * @ORM\Column(name="diplome",type="string",nullable=true)
+     */
+    protected $diplome;
+
+    /**
+     * @ORM\Column(name="tofcin",type="string",nullable=true)
+     */
+    protected $tofcin;
+
+    /**
+     * @ORM\Column(name="biographie",type="text",nullable=true)
+     */
+    protected $biographie;
+
+    /**
+     * @ORM\Column(name="numtel",type="integer",nullable=true)
+     */
+    protected $numtel;
+
+
 
     /**
      * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie",inversedBy="pro")
@@ -68,46 +208,6 @@ class User extends BaseUser implements NotifiableInterface
         parent::__construct();
 
         $this->notification = new ArrayCollection();
-    }
-
-    /**
-     * @return Notification
-     */
-    public function getNotification()
-    {
-        return $this->notification;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function addNotification($notification)
-    {
-        if (!$this->notification->contains($notification)) {
-            $this->notification[] = $notification;
-            $notification->setUser($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function removeNotification($notification)
-    {
-        if ($this->notification->contains($notification)) {
-            $this->notification->removeElement($notification);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Notification $notification
-     */
-    public function setNotification($notification)
-    {
-        $this->notification = $notification;
     }
 
     /**
