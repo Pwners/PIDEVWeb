@@ -152,12 +152,39 @@
 
                                 <li > Bienvenue {{ app.user.username}} </li>
 
-                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-in"></i> Se déconnecter </a></li>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Deconnecter</a>
                             {% else %}
                                 <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in"></i> Se Connecter </a></li>
                                 <li><a href="{{ path('fos_user_registration_register') }}"><i class="fa fa-user-plus"></i> S'inscrire </a></li>
                             {% endif %}
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .modal-backdrop.in {
+                z-index: -1;
+                opacity: .5;
+                filter: alpha(opacity=50);
+            }
+        </style>
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Prét pour partir?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h1>toujours remercie notre equipe FIXIT</h1>
+                        <img src="{{ asset('assets/images/logo.png') }}">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Deconnecter</a>
                     </div>
                 </div>
             </div>

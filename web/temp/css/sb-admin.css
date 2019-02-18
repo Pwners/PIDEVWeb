@@ -4041,7 +4041,7 @@ input[type="button"].btn-block {
 }
 
 .custom-select:focus::-ms-value {
-  color: #495057;
+  color: rgba(145, 64, 11, 1);
   background-color: #fff;
 }
 

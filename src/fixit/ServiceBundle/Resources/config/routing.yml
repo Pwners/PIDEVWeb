@@ -1,3 +1,19 @@
 fixit_service_homepage:
     path:     /
     defaults: { _controller: fixitServiceBundle:Default:index }
+
+_ajout:
+    path:     /ajout
+    defaults: { _controller: fixitServiceBundle:Categorie:Ajout }
+
+_supprimer:
+    path:     /supprimer
+    defaults: { _controller: fixitServiceBundle:Categorie:Supprimer }
+
+_modifier:
+    path:     /modifier
+    defaults: { _controller: fixitServiceBundle:Categorie:Modifier }
+
+_afficher:
+    path:     /afficher
+    defaults: { _controller: fixitServiceBundle:Categorie:Afficher }

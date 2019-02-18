@@ -65,10 +65,44 @@
                     </button>
                     <div class="menu-container">
                         <ul class="header-top-nav header-top-nav__tertiary">
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+                            <li class="fa fa-user-plus"> <strong>Bienvenue {{ app.user.username}}</strong> </li>
+
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Deconnecter</a>
+                            {% else %}
                             <li><a href="{{ path('fos_user_registration_register') }}"><i class="fa fa-user-plus"></i>Inscrit client</a></li>
                             <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in"></i> se connecter</a></li>
                             <li><a href="{{ path('registration_pro') }}"><i class="fa fa-user-plus"></i> Inscrit pro</a></li>
+                            {% endif %}
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .modal-backdrop.in {
+                z-index: -1;
+                opacity: .5;
+                filter: alpha(opacity=50);
+            }
+        </style>
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Prét pour partir?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h1>toujours remercie notre equipe FIXIT</h1>
+                        <img src="{{ asset('assets/images/logo.png') }}">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Deconnecter</a>
                     </div>
                 </div>
             </div>
@@ -143,18 +177,18 @@
                 <div class="search-box">
                     <div class="container">
                         <div class="search-box-inner">
-                            <h1>Search for Professionals</h1>
+                            <h1>Rechercher un professionnel</h1>
                             <form action="http://handyman.dan-fisher.com/job-professionals.html" method="POST" role="form">
 
                                 <div class="row">
                                     <div class="col-md-3 col-md-offset-1">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="All Professionals">
+                                            <input type="text" class="form-control" placeholder="Tous les Bricoleurs">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Any Location">
+                                            <input type="text" class="form-control" placeholder="Toutes les Zones">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -244,6 +278,70 @@
                 <!-- Stats / End -->
 
                 <div class="spacer-xl"></div>
+                <div class="promobox" data-stellar-background-ratio="0.5">
+                    <div class="row">
+                        <div class="col-md-4 promobox-item">
+                            <h4><span>Pour</span> Electriciens</h4>
+                            <img src="{{ asset('images/samples/depannage.png') }}" alt="" class="img-responsive">
+                            <a href="#" class="btn btn-primary btn-sm">Voir Ici</a>
+                        </div>
+                        <div class="col-md-4 promobox-item">
+                            <h4><span>Pour</span> Plombiers</h4>
+                            <img src="{{ asset('images/samples/worker1.png') }}" alt="" class="img-responsive">
+                            <a href="#" class="btn btn-primary btn-sm">Voir Ici</a>
+                        </div>
+                        <div class="col-md-4 promobox-item">
+                            <h4><span>pour</span> Menuisiers</h4>
+                            <img src="{{ asset('images/samples/charp.png') }}" alt="" class="img-responsive">
+                            <a href="#" class="btn btn-primary btn-sm">Voir Ici</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Promobox / End -->
+
+                <div class="spacer-lg"></div>
+
+                <!-- Services -->
+                <div class="title-bordered">
+                    <h2>Nos Service <small>services que nous avons fournis</small></h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="fa fa-lightbulb-o"></i>
+                            </div>
+                            <div class="icon-box-body">
+                                <h5>Electricité</h5>
+                                <p>
+                                    Nous utilisons les dernières technologies pour tester de nouveaux produits innovants afin de les protéger.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="entypo tools"></i>
+                            </div>
+                            <div class="icon-box-body">
+                                <h5>Domicile</h5>
+                                <p>un service professionnel fournissant une expertise indépendante.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="fa fa-suitcase"></i>
+                            </div>
+                            <div class="icon-box-body">
+                                <h5>Bricolage</h5>
+                                <p>La gestion, la protection et la restauration de l'environnement font partie intégrante de nos services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
 
                 <!-- Listings -->
                 <div class="title-bordered">
@@ -457,235 +555,6 @@
                 <div class="spacer-xxl"></div>
 
                 <!-- Promobox -->
-                <div class="promobox" data-stellar-background-ratio="0.5">
-                    <div class="row">
-                        <div class="col-md-4 promobox-item">
-                            <h4><span>For</span> Designers</h4>
-                            <img src="{{ asset('images/samples/worker3.png') }}" alt="" class="img-responsive">
-                            <a href="#" class="btn btn-primary btn-sm">See Here</a>
-                        </div>
-                        <div class="col-md-4 promobox-item">
-                            <h4><span>For</span> Plumbers</h4>
-                            <img src="{{ asset('images/samples/worker1.png') }}" alt="" class="img-responsive">
-                            <a href="#" class="btn btn-primary btn-sm">See Here</a>
-                        </div>
-                        <div class="col-md-4 promobox-item">
-                            <h4><span>For</span> Builders</h4>
-                            <img src="{{ asset('images/samples/worker2.png') }}" alt="" class="img-responsive">
-                            <a href="#" class="btn btn-primary btn-sm">See Here</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Promobox / End -->
-
-                <div class="spacer-lg"></div>
-
-                <!-- Services -->
-                <div class="title-bordered">
-                    <h2>Our Services <small>services we provided</small></h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-bug"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Pest Control</h5>
-                                <p>We use the latest technology to test new and innovated products so we can protect.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-cog"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Engineering Consultant</h5>
-                                <p>Consulting engineering is a professional service that provides independent expertise.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-recycle"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Environmental Consulting</h5>
-                                <p>Managing, protecting and restoring the environment are integral to our services.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-suitcase"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Handiwork</h5>
-                                <p>We are professional tile installers who can install and repair tile in many areas of your home.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-lightbulb-o"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Lighting Design</h5>
-                                <p>Professional lighting designers dedicate their careers exclusively to the art and science of lighting.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-cube"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Storage</h5>
-                                <p>Hiring our professional handyman services ensures proper storage installation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-tree"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Tree Service</h5>
-                                <p>Provides vegetation management, storm restoration, and work planning services.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="fa fa-car"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>Moving</h5>
-                                <p>Whether you're moving down the street or across the country, we'll help you manage your relocation stress.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-box">
-                            <div class="icon">
-                                <i class="entypo tools"></i>
-                            </div>
-                            <div class="icon-box-body">
-                                <h5>General Contracting</h5>
-                                <p>We develop special tailor-made solutions in collaboration with our customers.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Services / End -->
-
-                <!-- Clients -->
-                <div class="section-light section-bg2 section-overlay__yes section-overlay-color__primary section-overlay_opacity-90" data-stellar-background-ratio="0.5">
-                    <div class="section-inner">
-                        <div class="row">
-                            <div class="col-sm-3 col-md-3">
-                                <div class="text-center">
-                                    <a href="#"><img src="{{ asset('images/samples/client-logo1-dark.png') }}" alt="" class="img-responsive"></a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <div class="text-center">
-                                    <a href="#"><img src="{{ asset('images/samples/client-logo2-dark.png') }}" alt="" class="img-responsive"></a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <div class="text-center">
-                                    <a href="#"><img src="{{ asset('images/samples/client-logo3-dark.png') }}" alt="" class="img-responsive"></a>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 col-md-3">
-                                <div class="text-center">
-                                    <a href="#"><img src="{{ asset('images/samples/client-logo4-dark.png') }}" alt="" class="img-responsive"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Clients / End -->
-
-                <div class="spacer"></div>
-
-                <!-- Testimonials -->
-                <div class="title-bordered">
-                    <h2>Testimonials <small>what clients say</small></h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="testimonial">
-                            <blockquote>
-                                <p>If you're faced with home improvement or repair tasks, and don't have the time, I would give Handyman my highest recommendation.</p>
-                            </blockquote>
-                            <div class="bq-author">
-                                <figure class="author-img">
-                                    <img src="{{ asset('images/samples/user1-sm.jpg') }}" alt="">
-                                </figure>
-                                <h6>Michael Smith</h6>
-                                <span class="bq-author-info">Copywriter</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="testimonial">
-                            <blockquote>
-                                <p>They worked hard and offered to help me set up my furniture once it was in my new home.</p>
-                                <p>Very pleased!</p>
-                            </blockquote>
-                            <div class="bq-author">
-                                <figure class="author-img">
-                                    <img src="{{ asset('images/samples/user3-sm.jpg') }}" alt="">
-                                </figure>
-                                <h6>Bradley Cooper</h6>
-                                <span class="bq-author-info">Teacher</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="testimonial">
-                            <blockquote>
-                                <p>The movers were friendly, helpful, polite, professional and efficient. They did a great job! I would highly recommend them! Thank you!</p>
-                            </blockquote>
-                            <div class="bq-author">
-                                <figure class="author-img">
-                                    <img src="{{ asset('images/samples/user2-sm.jpg') }}" alt="">
-                                </figure>
-                                <h6>Hanna Pinkman</h6>
-                                <span class="bq-author-info">Radiologist</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="testimonial">
-                            <blockquote>
-                                <p>I am very happy with their work. they did a great job. They were very helpful with other aspects of the work i had in mind. They were very clean, and very quick.</p>
-                            </blockquote>
-                            <div class="bq-author">
-                                <figure class="author-img">
-                                    <img src="{{ asset('images/samples/user4-sm.jpg') }}" alt="">
-                                </figure>
-                                <h6>Erick Fox</h6>
-                                <span class="bq-author-info">Botanist</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonials / End -->
 
             </div>
         </section>
