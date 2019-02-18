@@ -1,0 +1,3 @@
+fixit_acctualite_homepage:
+    path:     /
+    defaults: { _controller: fixitAcctualiteBundle:Default:index }

@@ -1,0 +1,3 @@
+fixit_evaluation_homepage:
+    path:     /
+    defaults: { _controller: fixitEvaluationBundle:Default:index }

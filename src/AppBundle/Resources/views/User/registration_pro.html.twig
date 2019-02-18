@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
+
+{% block head %}
+    <head>
+        <!-- Basic Page Needs
+        ================================================== -->
+        <meta charset="utf-8">
+        <title>  {% block title %}Bienvenue {% endblock %}</title>
+        <meta name="description" content="Handyman - Job Board HTML Template - 1.0">
+        <meta name="author" content="../themeforest.net/user/dan_fisher.html">
+
+
+        <!-- Mobile Specific Metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+
+
+        <!-- CSS
+        ================================================== -->
+        <!-- Base + Vendors CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/fonts/font-awesome/css/font-awesome.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/fonts/entypo/css/entypo.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/owl-carousel/owl.theme.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/magnific-popup/magnific-popup.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/flexslider/flexslider.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('vendor/job-manager/frontend.css') }}" media="screen">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+        <!-- Bootstrap core CSS     -->
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+
+        <!-- Animation library for notifications   -->
+        <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet"/>
+
+        <!--  Paper Dashboard core CSS    -->
+        <link href="{{ asset('assets/css/paper-dashboard.css') }}" rel="stylesheet"/>
+
+        <!--  CSS for Demo Purpose, don't include it in your project     -->
+        <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
+
+        <!--  Fonts and icons     -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+        <link href="{{ asset('assets/css/themify-icons.css') }}" rel="stylesheet">
+
+        <!-- Theme CSS-->
+        <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme-elements.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+
+
+        <!-- Head Libs -->
+        <script src="{{ asset('vendor/modernizr.js') }}"></script>
+
+
+        <!-- Favicons
+        ================================================== -->
+        <link rel="shortcut icon" href="{{ asset('images/favicons/favicon.ico') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/favicons/favicon-120.html') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicons/favicon-152.html') }}">
+        <script src="{{ asset('vendor/jquery-1.11.0.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery-migrate-1.2.1.min.js') }}"></script>
+        <script src="{{ asset('vendor/bootstrap.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.flexnav.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.hoverIntent.minified.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.flickrfeed.js') }}"></script>
+        <script src="{{ asset('vendor/magnific-popup/jquery.magnific-popup.js') }}"></script>
+        <script src="{{ asset('vendor/owl-carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.fitvids.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.appear.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.stellar.min.js') }}"></script>
+        <script src="{{ asset('vendor/flexslider/jquery.flexslider-min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery.countTo.js') }}"></script>
+        <script src="{{ asset('tim/assets/js/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('tim/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+        <!--  Checkbox, Radio & Switch Plugins -->
+        <script src="{{ asset('tim/assets/js/bootstrap-checkbox-radio.js') }}"></script>
+
+        <!--  Charts Plugin -->
+        <script src="{{ asset('tim/assets/js/chartist.min.js') }}"></script>
+
+        <!--  Notifications Plugin    -->
+        <script src="{{ asset('tim/assets/js/bootstrap-notify.js') }}"></script>
+
+        <!--  Google Maps Plugin    -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+        <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+        <script src="{{ asset('tim/assets/js/paper-dashboard.js') }}"></script>
+
+        <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+        <script src="{{ asset('tim/assets/js/demo.js') }}"></script>
+
+
+        <!-- Newsletter Form -->
+        <script src="{{ asset('vendor/jquery.validate.js') }}"></script>
+        <script src="{{ asset('js/newsletter.js') }}"></script>
+
+        <script src="{{ asset('js/custom.js') }}"></script>
+
+        <script>
+            jQuery(function($){
+                $('body').addClass('loading');
+            });
+
+            $(window).load(function(){
+                $('.flexslider').flexslider({
+                    animation: "fade",
+                    controlNav: true,
+                    directionNav: false,
+                    prevText: "",
+                    nextText: "",
+                    start: function(slider){
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
+        </script>
+
+    </head>
+{% endblock %}
+<body>
+{% block pro %}
+    <center>
+        <div class="site-wrapper">
+
+            <!-- Header -->
+            <header class="header header-menu-fullw">
+
+                <!-- Header Top Bar -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="header-top-right">
+                            <button class="btn btn-sm btn-default menu-link menu-link__tertiary">
+                                <i class="fa fa-user"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main -->
+                <div class="main" role="main">
+
+                    <!-- Page Heading -->
+                    <section class="page-heading">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1>S'inscrire</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Page Heading / End -->
+
+                    <!-- Page Content -->
+                    <section class="page-content">
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="spacer-lg visible-sm visible-xs"></div>
+                                    <div class="box">
+                                        <h3>s'inscrire</h3>
+                                        {{ form_start(form) }}
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <!-- Page Content / End -->
+
+                    <!-- Footer -->
+
+
+                </div>
+                <!-- Main / End -->
+        </div>
+    </center>
+{% endblock %}
+</body>
+</html>

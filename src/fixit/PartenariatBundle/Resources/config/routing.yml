@@ -1,0 +1,3 @@
+fixit_partenariat_homepage:
+    path:     /
+    defaults: { _controller: fixitPartenariatBundle:Default:index }

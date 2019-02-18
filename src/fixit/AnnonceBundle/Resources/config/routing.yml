@@ -1,0 +1,3 @@
+fixit_annonce_homepage:
+    path:     /
+    defaults: { _controller: fixitAnnonceBundle:Default:index }

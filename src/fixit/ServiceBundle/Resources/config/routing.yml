@@ -1,0 +1,3 @@
+fixit_service_homepage:
+    path:     /
+    defaults: { _controller: fixitServiceBundle:Default:index }

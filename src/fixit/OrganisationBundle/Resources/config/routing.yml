@@ -1,0 +1,3 @@
+fixit_organisation_homepage:
+    path:     /
+    defaults: { _controller: fixitOrganisationBundle:Default:index }

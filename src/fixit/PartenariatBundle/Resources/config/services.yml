@@ -1,0 +1,4 @@
+services:
+#    fixit_partenariat.example:
+#        class: fixit\PartenariatBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
