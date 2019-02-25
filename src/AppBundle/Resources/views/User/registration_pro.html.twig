@@ -48,66 +48,70 @@
 {% endblock %}
 <body>
 {% block pro %}
-        <div class="site-wrapper">
+    {% use 'bootstrap_3_horizontal_layout.html.twig' %}
+    <div class="site-wrapper">
 
-            <!-- Header -->
-            <header class="header header-menu-fullw">
+        <!-- Header -->
+        <header class="header header-menu-fullw">
 
-                <!-- Header Top Bar -->
-                <div class="header-top">
-                    <div class="container">
-                        <div class="header-top-right">
-                            <button class="btn btn-sm btn-default menu-link menu-link__tertiary">
-                                <i class="fa fa-user"></i>
-                            </button>
-                        </div>
+            <!-- Header Top Bar -->
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-top-right">
+                        <button class="btn btn-sm btn-default menu-link menu-link__tertiary">
+                            <i class="fa fa-user"></i>
+                        </button>
                     </div>
                 </div>
-                <!-- Main -->
-                <div class="main" role="main">
+            </div>
+            <!-- Main -->
+            <div class="main" role="main">
 
-                    <!-- Page Heading -->
-                    <section class="page-heading">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>S'inscrire</h1>
-                                </div>
+                <!-- Page Heading -->
+                <section class="page-heading">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>S'inscrire</h1>
                             </div>
                         </div>
-                    </section>
-                    <!-- Page Heading / End -->
+                    </div>
+                </section>
+                <!-- Page Heading / End -->
 
-                    <!-- Page Content -->
+                <!-- Page Content -->
 
-                        <section class="page-content">
-                            <div class="container">
+                <section class="page-content">
+                    <div class="container">
 
-                                <div class="row">
-                                    <center>
-                                    <div class="col-md-6">
-                                        <div class="spacer-lg visible-sm visible-xs"></div>
-                                        <div class="box">
-                                            <h3>s'inscrire</h3>
-                                            {{ form_start(form) }}
-                                            {{ form_end(form) }}
-                                        </div>
+                        <div class="row">
+                            <center>
+                                <div class="col-md-6">
+                                    <div class="spacer-lg visible-sm visible-xs"></div>
+                                    <div class="box">
+                                        <h3>s'inscrire</h3>
+                                        {{ form_start(form) }}
+
+                                        {{ form_end(form) }}
                                     </div>
-                                    </center>
+
                                 </div>
+                            </center>
+                        </div>
 
-                            </div>
-                        </section>
-
-
-                    <!-- Page Content / End -->
-
-                    <!-- Footer -->
+                    </div>
+                </section>
 
 
-                </div>
-                <!-- Main / End -->
-        </div>
+                <!-- Page Content / End -->
+
+                <!-- Footer -->
+
+
+            </div>
+            <!-- Main / End -->
+    </div>
+
 {% endblock %}
 <script src="{{ asset('vendor/jquery-1.11.0.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-migrate-1.2.1.min.js') }}"></script>

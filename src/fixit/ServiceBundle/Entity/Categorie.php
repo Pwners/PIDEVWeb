@@ -36,8 +36,7 @@ class Categorie
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\tache",inversedBy="categories")
-     * @ORM\JoinColumn(name="tache", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\tache",mappedBy="categorie")
      */
     private $tache;
 

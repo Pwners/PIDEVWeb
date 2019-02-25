@@ -1,0 +1,33 @@
+{% extends 'dashbord_user.html.twig' %}
+
+{% block title %}devis{% endblock %}
+
+{% block showusercategorie %}
+    <form method="post" action="{{ path('genererDevise') }}">
+        <div id="inputs">
+            <input type="hidden" name="nbr" id="nbr" value="1">
+            <label> Taches:
+        <select name="tache1">
+            {% for t in taches  %}
+                <option value="{{ t.id }}"> {{ t.nom }}</option>
+            {% endfor %}
+        </select>
+            </label>
+        </div>
+        <input type="submit" value="generer devis">
+    </form>
+    <a id="add" class="btn-primary circled"> +</a>
+{% block scripts %}
+    {{ parent() }}
+    <script>
+           $('#add').click(()=>{
+                var num = $('#nbr').val();
+               console.log(num);
+
+                num++;
+               $('#inputs').append("<br><label> Taches:<select name='tache"+num+"'> {% for t in taches %}<option value='{{ t.id }}'> {{ t.nom }}</option>{% endfor %}</select></label>");
+               $('#nbr').val(num);
+           });
+    </script>
+    {% endblock %}
+{% endblock %}

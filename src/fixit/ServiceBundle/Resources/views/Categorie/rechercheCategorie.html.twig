@@ -1,0 +1,12 @@
+{% extends "Admin.html.twig" %}
+{% block findcategorie %}
+    <div>
+        {{ form_start(searchform, { 'attr': {'class': 'navbar-form navbar-left'} }) }}
+        <div class="form-group">
+            {{ form_widget(searchform.nom, { 'attr': {'class': 'form-control','placeholder': 'categorie...'} }) }}
+            {{ form_widget(searchform.type, { 'attr': {'class': 'form-control','placeholder': 'service...'} }) }}
+            {{ form_widget(searchform.Recherche, { 'attr': {'class': 'btn btn-primary'} }) }}
+        </div>
+        {{ form_end(searchform) }}
+    </div>
+{% endblock %}

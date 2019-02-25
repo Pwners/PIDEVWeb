@@ -24,7 +24,7 @@ class DefaultController extends Controller
     public function AdminAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('Admin.html.twig'
+        return $this->render('HomeAdmin.html.twig'
 
         );
     }

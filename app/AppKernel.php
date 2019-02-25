@@ -25,6 +25,8 @@ class AppKernel extends Kernel
             new fixit\OrganisationBundle\fixitOrganisationBundle(),
             new fixit\EvaluationBundle\fixitEvaluationBundle(),
             new fixit\ServiceBundle\fixitServiceBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -10,4 +10,9 @@ namespace fixit\ServiceBundle\Repository;
  */
 class tacheRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByNom($nom){
+
+        $dqlresult=$this->getEntityManager()->createQuery("SELECT m FROM fixitServiceBundle:tache m where m.nom= '$nom'");
+        return $dqlresult->getResult();
+    }
 }

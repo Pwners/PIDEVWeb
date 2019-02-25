@@ -10,13 +10,17 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="`user`")
+ * @Vich\Uploadable
  * @Notifiable(name="user")
  */
 class User extends BaseUser implements NotifiableInterface
@@ -32,6 +36,109 @@ class User extends BaseUser implements NotifiableInterface
      * @ORM\Column(name="entreprise",type="string",nullable=true)
      */
     protected $entreprise;
+    /**
+     * @ORM\Column(name="prenom",type="string",nullable=true)
+     */
+    protected $prenom;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="S'il vous plais, telecharger votre diplome en forme PDF.")
+     * @Assert\File(mimeTypes={ "application/pdf" })
+     */
+    private $diplome;
+
+
+    /**
+     * @ORM\Column(name="biographie",type="text",nullable=true)
+     */
+    protected $biographie;
+
+    /**
+     * @ORM\Column(name="numtel",type="integer",nullable=true)
+     */
+    protected $numtel;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie",inversedBy="pro")
+     * @ORM\JoinColumn(name="categories", referencedColumnName="id")
+     */
+    private $categories;
+
+    /**
+     * @Vich\UploadableField(mapping="user_images", fileNameProperty="imageCin")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageCin;
+
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $imageFile
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageCin($imageCin)
+    {
+        $this->imageCin = $imageCin;
+        return $this;
+    }
+
+    public function getImageCin()
+    {
+        return $this->imageCin;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
 
     /**
      * @return mixed
@@ -81,21 +188,6 @@ class User extends BaseUser implements NotifiableInterface
         $this->entreprise = $entreprise;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * @param mixed $nom
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-    }
 
     /**
      * @return mixed
@@ -128,60 +220,6 @@ class User extends BaseUser implements NotifiableInterface
     {
         $this->prenom = $prenom;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getTofcin()
-    {
-        return $this->tofcin;
-    }
-
-    /**
-     * @param mixed $tofcin
-     */
-    public function setTofcin($tofcin)
-    {
-        $this->tofcin = $tofcin;
-    }
-
-    /**
-     * @ORM\Column(name="nom",type="string",nullable=true)
-     */
-    protected $nom;
-
-    /**
-     * @ORM\Column(name="prenom",type="integer",nullable=true)
-     */
-    protected $prenom;
-
-    /**
-     * @ORM\Column(name="diplome",type="string",nullable=true)
-     */
-    protected $diplome;
-
-    /**
-     * @ORM\Column(name="tofcin",type="string",nullable=true)
-     */
-    protected $tofcin;
-
-    /**
-     * @ORM\Column(name="biographie",type="text",nullable=true)
-     */
-    protected $biographie;
-
-    /**
-     * @ORM\Column(name="numtel",type="integer",nullable=true)
-     */
-    protected $numtel;
-
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie",inversedBy="pro")
-     * @ORM\JoinColumn(name="categories", referencedColumnName="id")
-     */
-    private $categories;
 
     /**
      * @return mixed

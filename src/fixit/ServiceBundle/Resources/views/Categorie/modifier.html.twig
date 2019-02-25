@@ -1,7 +1,11 @@
-{% extends "::base.html.twig" %}
-
-{% block title %}fixitServiceBundle:Categorie:Modifier{% endblock %}
-
-{% block body %}
-<h1>Welcome to the Categorie:Modifier page</h1>
+{% extends "Admin.html.twig" %}
+{% block editcategorie %}
+<center><h1>Modification des Catégories</h1>
+    {{ form_start(form) }}
+    Nom du Catégorie : {{ form_widget(form.nom) }}
+    <br><br>
+    Type du Service :{{ form_widget(form.type) }}
+    <br><br>
+    {{ form_end(form) }}
+</center>
 {% endblock %}

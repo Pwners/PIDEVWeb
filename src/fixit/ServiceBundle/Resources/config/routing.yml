@@ -1,3 +1,7 @@
+fixit_service_devis:
+    resource: "@fixitServiceBundle/Resources/config/routing/devis.yml"
+    prefix:   /devis
+
 fixit_service_homepage:
     path:     /
     defaults: { _controller: fixitServiceBundle:Default:index }
@@ -7,13 +11,57 @@ _ajout:
     defaults: { _controller: fixitServiceBundle:Categorie:Ajout }
 
 _supprimer:
-    path:     /supprimer
+    path:     /supprimer/{id}
     defaults: { _controller: fixitServiceBundle:Categorie:Supprimer }
 
 _modifier:
-    path:     /modifier
+    path:     /modifier{id}
     defaults: { _controller: fixitServiceBundle:Categorie:Modifier }
 
 _afficher:
     path:     /afficher
     defaults: { _controller: fixitServiceBundle:Categorie:Afficher }
+
+userafficher:
+    path:     /userafficher/{type}
+    defaults: { _controller: fixitServiceBundle:Categorie:AfficherUser }
+
+_recherche:
+    path:     /recherche
+    defaults: { _controller: fixitServiceBundle:Categorie:recherche }
+
+ajouttache:
+    path:     /ajouttache
+    defaults: { _controller: fixitServiceBundle:tache:ajouttache }
+
+modifiertache:
+    path:     /modifiertache/{id}
+    defaults: { _controller: fixitServiceBundle:tache:modifiertache }
+
+listertache:
+    path:     /listertache
+    defaults: { _controller: fixitServiceBundle:tache:listertache }
+
+userlistertache:
+    path:     /userlistertache
+    defaults: { _controller: fixitServiceBundle:tache:Userlistertache }
+
+
+recherchetache:
+    path:     /recherchetache
+    defaults: { _controller: fixitServiceBundle:tache:recherchetache }
+
+supprimetache:
+    path:     /supprimetache/{id}
+    defaults: { _controller: fixitServiceBundle:tache:supprimetache }
+devise:
+    path:   /devise
+    defaults: {_controller: fixitServiceBundle:Categorie:devis }
+
+genererDevise:
+    path: /genererDevise
+    defaults: {_controller: fixitServiceBundle:Categorie:genererDevis}
+
+devis_ajout:
+    path:     /ajoutDevis
+    defaults: { _controller: fixitServiceBundle:Categorie:stepByStepDevis}

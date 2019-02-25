@@ -43,9 +43,32 @@ class tache
     private $prix;
 
     /**
-     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\Categorie", mappedBy="tache")
+     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie")
+     * @ORM\JoinColumn(name="categories", referencedColumnName="id")
      */
     private $categories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Devis" , inversedBy="taches")
+     * @ORM\JoinColumn(name="devis", referencedColumnName="id" )
+     */
+    private $devis;
+
+    /**
+     * @return mixed
+     */
+    public function getDevis()
+    {
+        return $this->devis;
+    }
+
+    /**
+     * @param mixed $devis
+     */
+    public function setDevis($devis)
+    {
+        $this->devis = $devis;
+    }
 
     /**
      * @return mixed

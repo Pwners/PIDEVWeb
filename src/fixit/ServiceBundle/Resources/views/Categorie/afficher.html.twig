@@ -1,7 +1,27 @@
-{% extends "::base.html.twig" %}
+{% extends "Admin.html.twig" %}
+{% block showcategorie %}
 
-{% block title %}fixitServiceBundle:Categorie:Afficher{% endblock %}
-
-{% block body %}
-<h1>Welcome to the Categorie:Afficher page</h1>
+        <table width="60%"  align="center" class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Identifiant Catégorie</th>
+                <th scope="col">Nom du catégorie</th>
+                <th scope="col">Type de service</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in categories %}
+                <tr>
+                    <th>{{ c.id }}</th>
+                    <td>{{ c.nom }}</td>
+                    <td>{{ c.type }}</td>
+                    <td>
+                        <a href="{{ path('_modifier',{'id':c.id}) }}" ><i class="fa fa-edit" title="Modifier"></i></a>
+                        <a href="{{ path('_supprimer',{'id':c.id}) }}"><i class="fa fa-trash" title="Supprimer" onclick="confirm('Are You Sure')"></i></a>
+                        </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 {% endblock %}

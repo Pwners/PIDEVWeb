@@ -10,4 +10,14 @@ namespace fixit\ServiceBundle\Repository;
  */
 class CategorieRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByNom($nom){
+
+        $dqlresult=$this->getEntityManager()->createQuery("SELECT m FROM fixitServiceBundle:Categorie m where m.nom= '$nom'");
+        return $dqlresult->getResult();
+    }
+    public function findByType($type){
+
+        $dqlresult=$this->getEntityManager()->createQuery("SELECT m FROM fixitServiceBundle:Categorie m where m.type= '$type'");
+        return $dqlresult->getResult();
+    }
 }

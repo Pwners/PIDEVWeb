@@ -13,6 +13,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    brochures_directory: '%kernel.root_dir%/../web/uploads/diplomes'
+    imagage_directory: '%kernel.root_dir%/../web/uploads/images'
 
 framework:
     #esi: ~
@@ -85,3 +87,19 @@ fos_user:
     from_email:
         address: "hello@aquanote.com"
         sender_name: "AquaNote Postman"
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            uri_prefix: /images/products
+            upload_destination: '%kernel.project_dir%/uploads/images'
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:    "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []
+    image:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
+        options:    []
