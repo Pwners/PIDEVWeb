@@ -57,8 +57,14 @@
                         </li >
                         <li >
                             <a href="{{ path('ajouttache') }}">
-                                <i class="ti-user"></i>
+                                <i class="ti-write"></i>
                                 <p>Mes Taches</p>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="{{ path('affiche_pro') }}">
+                                <i class="ti-user"></i>
+                                <p>Mon profile</p>
                             </a>
                         </li>
                     </ul>
@@ -101,12 +107,34 @@
                                         <li><a href="#">Another notification</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ti-settings"></i>
-                                        <p>Settings</p>
-                                    </a>
-                                </li>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Deconnecter</a>
+                                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Prét pour partir?</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h1>toujours remercie notre equipe FIXIT</h1>
+                                                <img src="{{ asset('assets/images/logo.png') }}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                                <a class="btn btn-primary" href="{{ path('fos_user_security_logout') }}">Deconnecter</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <style>
+                                    .modal-backdrop.in {
+                                        z-index: -1;
+                                        opacity: .5;
+                                        filter: alpha(opacity=50);
+                                    }
+                                </style>
                             </ul>
 
                         </div>

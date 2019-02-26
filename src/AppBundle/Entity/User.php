@@ -78,7 +78,28 @@ class User extends BaseUser implements NotifiableInterface
      * @var string
      */
     private $imageCin;
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageProfile;
 
+    /**
+     * @return mixed
+     */
+    public function getImageProfile()
+    {
+        return $this->imageProfile;
+    }
+
+    /**
+     * @param mixed $imageProfile
+     */
+    public function setImageProfile($imageProfile)
+    {
+        $this->imageProfile = $imageProfile;
+    }
 
     /**
      * @ORM\Column(type="datetime")

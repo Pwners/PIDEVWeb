@@ -36,12 +36,12 @@ class Categorie
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\tache",mappedBy="categorie")
+     * @ORM\OneToMany(targetEntity="fixit\ServiceBundle\Entity\tache",mappedBy="categories")
      */
     private $tache;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="Categorie")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="categories")
      */
     private $pro;
 

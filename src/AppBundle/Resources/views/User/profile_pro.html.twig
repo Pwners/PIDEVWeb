@@ -1,12 +1,13 @@
 {% extends 'dashbord_pro.html.twig' %}
 {% block content %}
-    <img src="{{ asset('uploads/images/' ~ user.imagecin) }}" style="border-radius: 60px; width: 120px;height: 120px;"/><br>
+    <img src="{{ asset('uploads/images/' ~ user.imageProfile) }}" style="border-radius: 60px; width: 120px;height: 120px;"/><br>
     <div>
     <strong>information :</strong>
     <ul style="list-style: none">
         <li> <strong>Nom : </strong> {{ user.username }}</li>
         <li> <strong> Prenom : </strong>{{ user.prenom }}</li>
-        <li> <strong>diplome : </strong> <a href="{{ asset('uploads/diplomes/' ~ user.diplome) }}"> telecharger le pdf</a></li>
+        <li> <strong> cin : </strong><a href="{{ asset('uploads/images/' ~ user.imageCin) }}"> voir la carte d'idhentité</a></li>
+        <li> <strong>diplome : </strong> <a href="{{ asset('uploads/diplomes/' ~ user.diplome) }}"> voir le diplome</a></li>
     </ul>
     </div>
 {% endblock %}

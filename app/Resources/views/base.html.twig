@@ -801,120 +801,74 @@
 </body>
 {% endblock %}
 {% block footer %}
-<footer class="footer" id="footer">
-    <div class="footer-widgets">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 col-md-4">
-                    <!-- Widget :: Contacts Info -->
-                    <div class="contacts-widget widget widget__footer">
-                        <h3 class="widget-title">Nous Contacter</h3>
-                        <div class="widget-content">
-                            <ul class="contacts-info-list">
-                                <li>
-                                    <i class="fa fa-map-marker"></i>
-                                    <div class="info-item">
-                                        Fixit Co., Belvedere, Tunis, Tunisie 1002
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>
-                                    <div class="info-item">
-                                        +216 24 211 591<br>
-                                        +2016 22 500 821
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope"></i>
-                                    <span class="info-item">
-													<a href="mailto:info@dan-fisher.com">support@fixit.com</a>
+    <footer class="footer" id="footer">
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <!-- Widget :: Contacts Info -->
+                        <div class="contacts-widget widget widget__footer">
+                            <h3 class="widget-title">Contact Us</h3>
+                            <div class="widget-content">
+                                <ul class="contacts-info-list">
+                                    <li>
+                                        <i class="fa fa-map-marker"></i>
+                                        <div class="info-item">
+                                            Z.I. Chotrana II B.P. 160
+                                            Pôle Technologique El Ghazela - Ariana 2083
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <div class="info-item">
+                                            +219 20 586 388<br>
+                                            +216 25 864 907
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <span class="info-item">
+													<a href="mailto:info@dan-fisher.com">pwners2019@gmail.com</a>
 												</span>
-                                </li>
-                                <li>
-                                    <i class="fa fa-clock-o"></i>
-                                    <div class="info-item">
-                                        Lundi - Vendredi 9:00 - 21:00
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-clock-o"></i>
+                                        <div class="info-item">
+                                            A votre service permanent
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                        <!-- /Widget :: Contacts Info -->
                     </div>
-                    <!-- /Widget :: Contacts Info -->
-                </div>
-                <div class="col-sm-4 col-md-4">
-                    <!-- Widget :: Latest Posts -->
-                    <div class="latest-posts-widget widget widget__footer">
-                        <h3 class="widget-title">Publications Recentes</h3>
-                        <div class="widget-content">
-                            <ul class="latest-posts-list">
-                                <li>
-                                    <figure class="thumbnail"><a href="#"><img src="{{ asset('images/samples/post-img1-sm.jpg') }}" alt=""></a></figure>
-                                    <h5 class="title"><a href="#">Trois Simple Réparations a Domicile qui Vous Sauveront des Centaines</a></h5>
-                                    <span class="date">Avril, 18 2015</span>
-                                </li>
-                                <li>
-                                    <figure class="thumbnail"><a href="#"><img src="{{ asset('images/samples/post-img2-sm.jpg') }}" alt=""></a></figure>
-                                    <h5 class="title"><a href="#">Outils qui Facilitent la Vie: The Big Backpack Blower</a></h5>
-                                    <span class="date">Mars, 21 2015</span>
-                                </li>
-                                <li>
-                                    <figure class="thumbnail"><a href="#"><img src="{{ asset('images/samples/post-img3-sm.jpg') }}" alt=""></a></figure>
-                                    <h5 class="title"><a href="#">11 Moyens de Combattre les Mithes </a></h5>
-                                    <span class="date">Mars, 21 2015</span>
-                                </li>
-                            </ul>
+
+
+                    <div class="clearfix visible-sm"></div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <!-- Widget :: Newsletter -->
+                        <div class="widget_newsletter widget widget__footer">
+                            <h3 class="widget-title"><strong>A propos</strong></h3>
+                            <div class="widget-content">
+                                <p>Plateforme interactive d'information et de scoring regroupant les services dont tout citoyen a besoin au quotidien. Que vous cherchez plombier, mécanicien, tailleur, ... on vous guide tout en répondant à des critères de disponibilité et de performance.</p>
+                            </div>
                         </div>
+                        <!-- /Widget :: Newsletter -->
                     </div>
-                    <!-- /Widget :: Latest Posts -->
-                </div>
-
-                <div class="clearfix visible-sm"></div>
-
-                <div class="col-sm-4 col-md-4">
-                    <!-- Widget :: Newsletter -->
-                    <div class="widget_newsletter widget widget__footer">
-                        <h3 class="widget-title">Restez a Jour !</h3>
-                        <div class="widget-content">
-                            <p>Recevez des projets DIY pour votre demeur et jardin dans votre boite inbox tous les weekends!</p>
-
-                            <form action="http://handyman.dan-fisher.com/php/newsletter-form.php" method="POST" id="newsletter-form">
-
-                                <div class="alert alert-success hidden" id="newsletter-alert-success">
-                                    <strong>Success!</strong> Thank you for subscribing.
-                                </div>
-                                <div class="alert alert-danger hidden" id="newsletter-alert-error">
-                                    <strong>Error!</strong> Something went wrong.
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="email"
-                                           value=""
-                                           data-msg-required="Please enter email address."
-                                           data-msg-email="Please enter a valid email address."
-                                           class="form-control"
-                                           placeholder="Entrez votre email ici..."
-                                           name="subscribe-email"
-                                           id="subscribe-email">
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block" data-loading-text="Loading...">S'abonner</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- /Widget :: Newsletter -->
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    Copyright &copy;<script>document.write(new Date().getFullYear())</script>  <a href="{{ path('homepage') }}">Fixit</a> &nbsp;| &nbsp;Tous Droits Réservés
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        Copyright &copy; 2019 powred by pwners  <a href="{{ path('homepage') }}">FIXIT</a> &nbsp;| &nbsp;All Rights Reserved
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 {% endblock %}
 
 <!-- Mirrored from handyman.dan-fisher.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Dec 2018 12:20:11 GMT -->

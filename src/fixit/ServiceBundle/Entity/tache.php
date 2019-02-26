@@ -43,7 +43,7 @@ class tache
     private $prix;
 
     /**
-     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie")
+     * @ORM\ManyToOne(targetEntity="fixit\ServiceBundle\Entity\Categorie" , inversedBy="tache")
      * @ORM\JoinColumn(name="categories", referencedColumnName="id")
      */
     private $categories;
